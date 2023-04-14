@@ -31,25 +31,36 @@ const printStacks = () => {
 
 // Next, what do you think this function should do?
 const movePiece = () => {
-  // Your code here
+  // move piece with the highest index on stack
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = () => {
   // Your code here
+  // greater piece cannot be placed on smaller piece
+  // 
 
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  // Your code here
-
+  if (stacks = {
+    a: [],
+    b: [],
+    c: [4, 3, 2, 1]
+  }) {
+    return true
+  }
+  return false
 }
+
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  // pass start stack through to move function
+  // pass end stack through to move function
 
 }
 
