@@ -37,39 +37,28 @@ const movePiece = (startStack, endStack) => {
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (startStack, endStack) => {
-  
-  if (endStack[endStack.length-1] == null){
-    console.log ("legal move")
-    return true
-  } else if (endStack[endStack.length-1] > startStack[startStack.length-1]){
-     console.log ("legal move")
-    return true
-  } else 
-  console.log ("NOT legal move")
-  return false
+  if (stacks[endStack] == '' || stacks[endStack][stacks[endStack].length-1] > stacks[startStack][stacks[startStack].length-1]){
+    return true}
+  else {
+    return false
+  }
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = (endStack) => {
-  console.log(stacks)
-  if (stacks.c[0]+stacks.c[1]+stacks.c[2]+stacks.c[3] == 10) {
-    console.log("WINNER")
-    return true
+  if (stacks[endStack] == stacks.c && stacks[endStack].length == 4)  {
+    console.log('you win')
+    return
+  } else {
+    console.log("loser")
   }
-  else {
-    console.log("NOT A WINNER")
-    return false
-  }
-  
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
-  console.log(typeof startStack + "!!!!!!!!!!!!")
   if (isLegal(startStack, endStack) == true){
     movePiece(startStack, endStack)
-    printStacks()
-    checkForWin()
+    checkForWin(endStack)
     return
   } else {
 
