@@ -45,12 +45,12 @@ const isLegal = (startStack, endStack) => {
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
-const checkForWin = (endStack) => {
-  if (stacks[endStack] == stacks.c && stacks[endStack].length == 4)  {
-    console.log('you win')
-    return
+const checkForWin = () => {
+  if ((stacks.c == '4,3,2,1' && stacks.b == '') && (stacks.c == '4,3,2,1' && stacks.a == ''))  {
+    console.log('!!!!!!YOU WIN!!!!!!!!!!!!')
+    return true
   } else {
-    console.log("loser")
+    return false
   }
 }
 
@@ -58,7 +58,7 @@ const checkForWin = (endStack) => {
 const towersOfHanoi = (startStack, endStack) => {
   if (isLegal(startStack, endStack) == true){
     movePiece(startStack, endStack)
-    checkForWin(endStack)
+    checkForWin()
     return
   } else {
 
@@ -111,7 +111,7 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
